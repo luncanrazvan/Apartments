@@ -1,0 +1,3 @@
+CREATE PROCEDURE gasestePerechi() SELECT a1.id_apartament,a2.id_apartament FROM Apartament a1 JOIN Apartament a2 ON a1.id_proprietar=a2.id_proprietar WHERE a1.id_apartament<=a2.id_apartament
+CREATE PROCEDURE listaCheltuieli() SELECT a.adresa,a.nr_ap,a.id_proprietar,c.valoare FROM Apartament a JOIN Consum c on(a.id_apartament=c.id_apartament) WHERE c.an=an1 AND c.luna=luna1 and a.adresa=adresa1
+CREATE PROCEDURE maiMulteAp() SELECT DISTINCT p.nume AS "Nume" FROM Proprietar p JOIN Apartament a ON p.id_proprietar=a.id_proprietar WHERE EXISTS(SELECT*FROM Apartament b WHERE a.id_apartament!=b.id_apartament AND a.id_proprietar=b.id_proprietar)
